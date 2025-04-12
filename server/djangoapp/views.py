@@ -5,11 +5,14 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def about(request):
     return render(request, 'djangoapp/about.html')
 
+
 def contact(request):
     return render(request, 'djangoapp/contact.html')
+
 
 def registration_request(request):
     if request.method == 'GET':
@@ -40,8 +43,9 @@ def registration_request(request):
             login(request, user)
             return render(request, 'djangoapp/index.html')
         else:
-            return render(request, 'djangoapp/registration.html', 
+            return render(request, 'djangoapp/registration.html',
                           {'message': "User already exists."})
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -52,7 +56,7 @@ def login_request(request):
             login(request, user)
             return render(request, 'djangoapp/index.html', {'user': user})
         else:
-            return render(request, 'djangoapp/index.html', 
+            return render(request, 'djangoapp/index.html',
                           {'message': "Invalid username or password."})
     else:
         return render(request, 'djangoapp/index.html')
