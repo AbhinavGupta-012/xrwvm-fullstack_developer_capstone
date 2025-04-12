@@ -40,7 +40,8 @@ def registration_request(request):
             login(request, user)
             return render(request, 'djangoapp/index.html')
         else:
-            return render(request, 'djangoapp/registration.html', {'message': "User already exists."})
+            return render(request, 'djangoapp/registration.html', 
+                          {'message': "User already exists."})
 
 def login_request(request):
     if request.method == 'POST':
@@ -51,6 +52,7 @@ def login_request(request):
             login(request, user)
             return render(request, 'djangoapp/index.html', {'user': user})
         else:
-            return render(request, 'djangoapp/index.html', {'message': "Invalid username or password."})
+            return render(request, 'djangoapp/index.html', 
+                          {'message': "Invalid username or password."})
     else:
         return render(request, 'djangoapp/index.html')
